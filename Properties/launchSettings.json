@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RideOperateApp (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "RideOperateApp (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

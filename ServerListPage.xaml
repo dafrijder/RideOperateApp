@@ -1,0 +1,55 @@
+<Page
+    x:Class="RideOperateApp.ServerListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RideOperateApp"
+    Background="#232526">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Titel en knop -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBlock Text="RideOperate Servers"
+                       FontSize="28"
+                       Foreground="#2ecc71"
+                       FontWeight="Bold"
+                       Margin="0,0,20,0"/>
+            <Button Content="➕ Toevoegen"
+                    Click="AddServer_Click"
+                    Background="#2ecc71"
+                    Foreground="White"
+                    Padding="12,6"
+                    BorderThickness="0"
+                    CornerRadius="6"/>
+        </StackPanel>
+
+        <!-- Server lijst -->
+        <ListView x:Name="ServerList" Grid.Row="1" Margin="0,20,0,0"
+                  SelectionMode="Single"
+                  ItemClick="ServerList_ItemClick"
+                  IsItemClickEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Server">
+                    <Border Background="#2c3e50"
+                            CornerRadius="8"
+                            BorderThickness="1"
+                            BorderBrush="#27ae60"
+                            Padding="12"
+                            Margin="0,0,0,12">
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind Name}"
+                                       FontSize="20"
+                                       Foreground="#2ecc71"
+                                       FontWeight="Bold"/>
+                            <TextBlock Text="{x:Bind IpPort}" Foreground="White"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

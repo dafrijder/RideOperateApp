@@ -1,0 +1,26 @@
+<Page
+    x:Class="RideOperateApp.ServerPanelPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RideOperateApp"
+    Background="#232526">
+
+    <Grid Padding="20">
+        <StackPanel>
+            <Button Content="⬅ Terug" Click="Back_Click"
+                    Background="#2980b9" Foreground="White"
+                    Padding="8,4" Width="100"
+                    CornerRadius="6"/>
+
+            <TextBlock x:Name="ServerTitle"
+                       FontSize="28"
+                       Foreground="#2ecc71"
+                       FontWeight="Bold"
+                       Margin="0,20,0,20"/>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="500">
+                <StackPanel x:Name="PanelContainer" Spacing="12"/>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+</Page>
