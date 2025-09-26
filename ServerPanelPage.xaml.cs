@@ -36,7 +36,7 @@ namespace RideOperateApp
             {
                 PanelContainer.Children.Add(new TextBlock
                 {
-                    Text = panels.Length > 0 ? panels[0] : "Geen panels gevonden.",
+                    Text = panels.Length > 0 ? panels[0] : "No panels found.",
                     FontSize = 16
                 });
                 return;
@@ -96,16 +96,6 @@ namespace RideOperateApp
                 string action = tag.Item2;
 
                 bool success = await TcpApiClient.ExecuteActionAsync(currentServer, panelName, action);
-
-                var dialog = new ContentDialog
-                {
-                    Title = success ? "✅ Succes" : "❌ Fout",
-                    Content = success ? $"Actie '{action}' uitgevoerd!" : $"Kon actie '{action}' niet uitvoeren.",
-                    CloseButtonText = "Ok",
-                    XamlRoot = this.XamlRoot
-                };
-
-                await dialog.ShowAsync();
             }
         }
 

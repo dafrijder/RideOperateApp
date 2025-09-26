@@ -52,17 +52,17 @@ namespace RideOperateApp
         {
             ContentDialog dialog = new()
             {
-                Title = "Nieuwe server toevoegen",
-                PrimaryButtonText = "Opslaan",
-                CloseButtonText = "Annuleren",
+                Title = "Add new server",
+                PrimaryButtonText = "Save",
+                CloseButtonText = "Cancel",
                 DefaultButton = ContentDialogButton.Primary,
                 XamlRoot = this.XamlRoot
             };
 
             StackPanel panel = new() { Spacing = 10 };
 
-            TextBox nameBox = new() { PlaceholderText = "Servernaam" };
-            TextBox ipBox = new() { PlaceholderText = "IP-adres" };
+            TextBox nameBox = new() { PlaceholderText = "Server name" };
+            TextBox ipBox = new() { PlaceholderText = "IP" };
             TextBox portBox = new() { PlaceholderText = "Port" };
             TextBox keyBox = new() { PlaceholderText = "API Key" };
 
@@ -90,11 +90,35 @@ namespace RideOperateApp
             }
         }
 
-        private void ServerList_ItemClick(object sender, ItemClickEventArgs e)
+        private void OpenServer_Click(object sender, RoutedEventArgs e)
         {
-            if (e.ClickedItem is Server srv)
+            if (sender is Button btn && btn.Tag is Server srv)
             {
                 Frame.Navigate(typeof(ServerPanelPage), srv);
+            }
+        }
+
+        private async void DeleteServer_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn && btn.Tag is Server srv)
+            {
+                ContentDialog confirm = new()
+                {
+                    Title = "Delete Server",
+                    Content = $"Are you sure you want to delete '{srv.Name}'?",
+                    PrimaryButtonText = "Delete",
+                    CloseButtonText = "Cancel",
+                    DefaultButton = ContentDialogButton.Close,
+                    XamlRoot = this.XamlRoot
+                };
+
+                var result = await confirm.ShowAsync();
+
+                if (result == ContentDialogResult.Primary)
+                {
+                    Servers.Remove(srv);
+                    SaveServers();
+                }
             }
         }
     }

@@ -7,7 +7,7 @@
 
     <Grid Padding="20">
         <StackPanel>
-            <Button Content="⬅ Terug" Click="Back_Click"
+            <Button Content="⬅ back" Click="Back_Click"
                     Background="#2980b9" Foreground="White"
                     Padding="8,4" Width="100"
                     CornerRadius="6"/>
