@@ -38,6 +38,7 @@ Server connection settings can be configured through the application interface. 
 
 For issues related to the RideOperateApp, please open an issue on GitHub. For plugin-related support, visit the [Spigot plugin page](https://www.spigotmc.org/resources/ride-operate.115637/).
 
-## License
+## License & Copywrite
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+This project is copywited by FriendsparkMC
